@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography — a warm editorial serif for display moments, a clean
+     geometric sans for interface density, and a mono for technical bits. */
+  --font-display: "Fraunces", "Iowan Old Style", ui-serif, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+  /* Ember — primary brand accent (the "always-on" warmth of the agent). */
+  --color-ember-50: #fbf3ec;
+  --color-ember-100: #f6e3d0;
+  --color-ember-200: #edc7a1;
+  --color-ember-300: #e2a56d;
+  --color-ember-400: #d5813f;
+  --color-ember-500: #c4641f;
+  --color-ember-600: #a94e12;
+  --color-ember-700: #883d10;
+  --color-ember-800: #6c3212;
+  --color-ember-900: #582a12;
+  --color-ember-950: #301305;
+
+  /* Signal — secondary accent for AI / intelligence moments. */
+  --color-signal-50: #edfaf6;
+  --color-signal-100: #d1f1e8;
+  --color-signal-200: #a3e2d2;
+  --color-signal-300: #6fcbb6;
+  --color-signal-400: #45ac98;
+  --color-signal-500: #2e8b7a;
+  --color-signal-600: #226f62;
+  --color-signal-700: #1d584f;
+  --color-signal-800: #1a4941;
+  --color-signal-900: #183d37;
+  --color-signal-950: #0a211e;
+
+  /* Ink — warm near-black for dark surfaces (replaces cold slate-900). */
+  --color-ink-950: #17130f;
+  --color-ink-900: #241d16;
+  --color-ink-800: #362b1f;
+  --color-ink-700: #493a29;
+
+  /* Paper — warm ivory background for marketing / auth surfaces. */
+  --color-paper: #fbf8f2;
+  --color-paper-dim: #f4efe4;
+}
+
+@layer base {
+  body {
+    font-feature-settings: "ss01" 1, "cv01" 1;
+  }
+
+  ::selection {
+    background-color: var(--color-ember-600);
+    color: white;
+  }
+}
+
+@layer utilities {
+  /* Subtle grain texture for atmosphere on large warm surfaces (hero,
+     auth screens). Kept as a utility so it stays opt-in and cheap. */
+  .bg-grain {
+    position: relative;
+  }
+  .bg-grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}

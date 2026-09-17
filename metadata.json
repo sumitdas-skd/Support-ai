@@ -1,0 +1,6 @@
+{
+  "name": "SupportAI",
+  "description": "An AI customer support agent that answers customers 24/7 using your company's own knowledge.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
